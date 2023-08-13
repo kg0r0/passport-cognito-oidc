@@ -7,7 +7,7 @@ declare module 'express-session' {
   export interface SessionData {
     authParams: AuthParams
     tokenSet: TokenSet
-    isLoggedIn: Boolean
+    isLoggedIn: boolean
   }
 }
 
@@ -71,7 +71,7 @@ export class AbstractStrategy extends PassportStrategy {
       redirect_uris: [this.redirectUri],
       response_types: [this.responseType]
     })
-    if (!req.session) {
+    if (options.session === false || !req.session) {
       throw new Error('express-session is not configured')
     }
 
@@ -98,7 +98,7 @@ export class AbstractStrategy extends PassportStrategy {
       req.session.isLoggedIn = true;
       return req.res?.redirect(req.session.authParams.originalUrl!);
     }
-    const scope = this.scope;
+    const scope = <string>options.scope || this.scope;
     const nonce = generators.nonce();
     const state = generators.state();
     const codeVerifier = generators.codeVerifier();
@@ -122,7 +122,7 @@ export class AbstractStrategy extends PassportStrategy {
     return req.res?.redirect(authorizationUrl);
   }
 
-  success(user: any, info?: any): void {
+  success(user: unknown, info?: unknown): void {
     super.success(user, info);
   }
 

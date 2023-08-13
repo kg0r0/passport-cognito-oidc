@@ -6,7 +6,7 @@ declare module 'express-session' {
     interface SessionData {
         authParams: AuthParams;
         tokenSet: TokenSet;
-        isLoggedIn: Boolean;
+        isLoggedIn: boolean;
     }
 }
 export interface AuthParams {
@@ -44,7 +44,7 @@ export declare class AbstractStrategy extends PassportStrategy {
     scope: string;
     constructor(options: StrategyOptions);
     authenticate(req: Request, options: AuthenticateOptions): Promise<void>;
-    success(user: any, info?: any): void;
+    success(user: unknown, info?: unknown): void;
     error(err: Error): void;
     redirect(url: string, status?: number): void;
     verify(): void;

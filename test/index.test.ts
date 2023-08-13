@@ -3,10 +3,10 @@ import express from 'express';
 import nock from 'nock';
 
 beforeEach(() => {
-  nock('https://127.0.0.1')
-    .get('/.well-known/openid-configuration')
+  nock('https://cognito-idp.us-east-1.amazonaws.com')
+    .get('/TEST_USER_POOL_ID/.well-known/openid-configuration')
     .reply(200, {
-      authorization_endpoint: 'https://127.0.0.1/authorize'
+      authorization_endpoint: 'https://cognito-idp.us-east-1.amazonaws.com/oauth2/authorize'
     })
 })
 
@@ -15,7 +15,7 @@ describe('Strategy', () => {
     clientId: 'TEST_CLIENT_ID',
     clientSecret: 'TEST_CLIENT_SECRET',
     redirectUri: 'TEST_REDIRECT_URI',
-    region: 'TEST_REGION',
+    region: 'us-east-1',
     userPoolId: 'TEST_USER_POOL_ID'
   });
   const mockRequest = {
