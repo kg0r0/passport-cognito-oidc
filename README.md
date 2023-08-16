@@ -1,6 +1,7 @@
 #  passport-cognito-oidc
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Npm package version](https://badgen.net/npm/v/passport-cognito-oidc)](https://badge.fury.io/js/passport-cognito-oidc)
 [![CI](https://github.com/kg0r0/passport-cognito-oidc/actions/workflows/ci.yml/badge.svg)](https://github.com/kg0r0/passport-cognito-oidc/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [Passport](http://passportjs.org/) strategies for authenticating with [Amazon Cognito user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) using [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).
 
