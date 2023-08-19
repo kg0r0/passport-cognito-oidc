@@ -29,7 +29,7 @@ export interface StrategyOptions {
     responseType?: string;
     scope?: string;
 }
-export declare class AbstractStrategy extends PassportStrategy {
+export declare abstract class AbstractStrategy extends PassportStrategy {
     name: string;
     authParams: AuthParams;
     client?: Client;
@@ -47,7 +47,7 @@ export declare class AbstractStrategy extends PassportStrategy {
     success(user: unknown, info?: unknown): void;
     error(err: Error): void;
     redirect(url: string, status?: number): void;
-    verify(): void;
 }
 export declare class Strategy extends AbstractStrategy {
+    constructor(options: StrategyOptions);
 }

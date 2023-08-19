@@ -18,13 +18,29 @@ describe('Strategy', () => {
     region: 'us-east-1',
     userPoolId: 'TEST_USER_POOL_ID'
   });
-  const mockRequest = {
-    query: {
-    },
-    session: {
-    }
-  } as unknown as express.Request;
-  it('authenticate should not throw error', () => {
-    strategy.authenticate(mockRequest, {});
+  describe('authenticate', () => {
+    it('authenticate should not throw error', async () => {
+      const mockRequest = {
+        query: {
+        },
+        session: {
+        }
+      } as unknown as express.Request;
+      await strategy.authenticate(mockRequest, {});
+    })
+
+    it('returns error when session is not set.', async () => {
+      const mockRequest = {
+        query: {
+        }
+      } as unknown as express.Request;
+      try {
+        await strategy.authenticate(mockRequest, {});
+      } catch (err) {
+        if (err instanceof Error) {
+          expect(err.message).toBe('express-session is not configured')
+        }
+      }
+    })
   })
 })

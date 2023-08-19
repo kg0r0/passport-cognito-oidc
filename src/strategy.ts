@@ -33,7 +33,7 @@ export interface StrategyOptions {
   scope?: string
 }
 
-export class AbstractStrategy extends PassportStrategy {
+export abstract class AbstractStrategy extends PassportStrategy {
   name: string;
   authParams: AuthParams;
   client?: Client;
@@ -59,7 +59,7 @@ export class AbstractStrategy extends PassportStrategy {
     this.responseType = options.responseType || 'code';
     this.url = options.url || `https://cognito-idp.${this.region}.amazonaws.com/${this.userPoolId}/.well-known/openid-configuration`;
     this.scope = options.scope || 'openid';
-}
+  }
 
   async authenticate(req: Request, options: AuthenticateOptions): Promise<void> {
     if (!this.issuer) {
@@ -134,10 +134,10 @@ export class AbstractStrategy extends PassportStrategy {
     super.redirect(url, status);
   }
 
-  verify(): void {
-
-  }
 }
 
 export class Strategy extends AbstractStrategy {
+  constructor(options: StrategyOptions) {
+    super(options);
+  }
 }
