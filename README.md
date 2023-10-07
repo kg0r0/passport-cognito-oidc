@@ -3,6 +3,8 @@
 [![CI](https://github.com/kg0r0/passport-cognito-oidc/actions/workflows/ci.yml/badge.svg)](https://github.com/kg0r0/passport-cognito-oidc/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+:construction: **Note: This library is in beta and is not ready for production** :construction:
+
 [Passport](http://passportjs.org/) strategies for authenticating with [Amazon Cognito user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) using [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).
 
 This is a library for the backend that depends on [Express](https://expressjs.com/). If you are looking for a frontend library, you may use [Amplify Library](https://docs.amplify.aws/lib/auth/social/q/platform/js/#setup-frontend). Also, if you prefer to use [Cognito user pools API](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html) for sign-in, the [AWS SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito-identity-provider/index.html) is available.
